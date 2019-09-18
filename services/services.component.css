@@ -1,0 +1,9 @@
+.card-img-top{max-height: 150px; object-fit: cover;}
+.textClipped{overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
+.textClipped1{ overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    line-height: 21px;     /* fallback */
+    max-height: 100px;      /* fallback */
+    -webkit-line-clamp: 6; /* number of lines to show */
+    -webkit-box-orient: vertical;}

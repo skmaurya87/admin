@@ -1,0 +1,56 @@
+<!-- (ngSubmit)="Contact()" [formGroup]="myForm" -->
+<div class="card border-primary rounded-0">
+  <div class="card-header p-0">
+      <div class="bg-info text-white text-center py-2">
+          <h3>Contact Us Form</h3>
+          <p class="m-0">Quick Contact us</p>
+      </div>
+  </div>
+  <div class="card-body p-3">
+        <form  (ngSubmit)="Contact()" [formGroup]="myForm" method="POST" action="quick-query.php">
+                <div class="form-group">
+                        <div class="input-group mb-2">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text"><i class="material-icons">account_circle</i></div>
+                            </div>
+                            <input type="text" class="form-control" formControlName="name" placeholder="Name" required>
+                        </div>
+                    <div *ngIf="myForm.controls['name'].dirty && myForm.controls['name'].hasError('required')" class="alert alert-danger">Name is required</div>
+                    <div *ngIf="myForm.controls['name'].dirty  && myForm.controls['name'].hasError('minlength')" class="alert alert-danger">Minimum 2 char</div>
+                    <div *ngIf="myForm.controls['name'].dirty  && myForm.controls['name'].hasError('maxlength')" class="alert alert-danger">Maximun 30 char</div>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group mb-2">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text"><i class="material-icons">phone</i></div>
+                            </div>
+                            <input type="text" class="form-control"  formControlName="mobile" placeholder="Mobile" required>
+                        </div>
+                        <div *ngIf="myForm.controls['mobile'].dirty && myForm.controls['mobile'].hasError('required')" class="alert alert-danger">Mobile No is required</div>
+                        <div *ngIf="myForm.controls['mobile'].dirty  && myForm.controls['mobile'].hasError('minlength')" class="alert alert-danger">Mobile Noumber Not matched</div>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group mb-2">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text"><i class="material-icons">email</i></div>
+                            </div>
+                            <input type="email" class="form-control"  formControlName="email"  placeholder="email" required>
+                        </div>
+                        <div *ngIf="myForm.controls['email'].dirty && myForm.controls['email'].hasError('required')" class="alert alert-danger">Emai id is required</div>
+                        <div *ngIf="myForm.controls['email'].dirty  && myForm.controls['email'].hasError('email')" class="alert alert-danger">Email id Not matched</div>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group mb-2">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text"><i class="material-icons">comment</i></div>
+                            </div>
+                            <textarea class="form-control" rows="5" placeholder="message" required></textarea>
+                        </div>
+                    </div>
+                    <div class="text-center">
+                        <input type="submit" value="Send Us"  (click)="Contact()"  class="btn btn-info btn-block rounded-0 py-2">
+                        <!-- [disabled]="myForm.invalid" -->
+                    </div>
+            </form>
+</div>
+</div>
